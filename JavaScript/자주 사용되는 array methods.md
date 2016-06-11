@@ -1,5 +1,11 @@
 # 자주 사용되는 JavaScript Array Methods
 
+## 작성로그
+###16.06.03 
+- Array.prototype.indexOf
+- Array.prototype.filter
+
+
 ## Array.prototype.indexOf()
 배열에서 특정값이 존재하는지 여부를 판단
 
