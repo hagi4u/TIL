@@ -1,7 +1,10 @@
 #decodeURIComponent 사용 시 순서에 대한 주의사항 (+ 기호)
 
+## 문제
+JSON으로 Encoded URIComponent 의 데이터를 받을 시 띄어쓰기가 `+`로 표기가 되어있는데, `+`를 공백문자로 치환을 해야한다.
+
 ## As-is
-Json으로 URIComponent 된 Raw 데이터를 받을 시 띄어쓰기가 `+`로 표기가 되어있는데, `+`를 공백문자로 치환을 해야한다. 여기서 처음에는 아래와 같은 코드를 사용했다.
+여기서 처음에는 아래와 같은 코드를 사용했다.
 ```JavaScript
 	data.title = decodeURIComponent(data.title).replace(/\+/g, ' ');
 ```

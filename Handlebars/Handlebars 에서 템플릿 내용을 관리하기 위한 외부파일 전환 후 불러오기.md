@@ -1,5 +1,5 @@
 # Handlebars 에서 템플릿 내용을 관리하기 위한 외부파일 전환 후 불러오기
-같은 기능이 들어 가 있고, 동일한 마크업에 대한 템플릿 내용을 각각의 파일에 작성하게 되면 관리 이슈가 생기기 마련
+동일한 마크업에 같은 내용이 들어간 템플릿 내용을 각각의 파일에 작성하게 되면 관리 이슈가 생기기 마련
 
 이를위해 Handlebars 형식에 맞는 템플릿 파일을 생성하여 동일한 마크업에 대한 템플릿 내용을 더 용이하게 한다.
 
@@ -10,13 +10,12 @@
 4. 저장된 변수를 Handlebars.compile(~~) 
 5. 컴파일 된 template 에 대해 innerHTML 코드로 대입
 
-## 예제
+## 예제 (회사 홈페이지)
 ### templates/viewer-header.hbs
 ```HTML
 {{!
-  viewer-header.hbs
- 
- WORK 상세보기의 상단 영역
+	viewer-header.hbs
+	WORK 상세페이지의 상단 영역
 }}
 
   <nav class="viewer-lnb">

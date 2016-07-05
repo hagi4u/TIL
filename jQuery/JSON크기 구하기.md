@@ -4,7 +4,7 @@
 Object.keys(jsonData).length
 ```
 
-Object.keys는 IE9 이하 버전에서는 제공되지 않으며, 제공하기 위해서는 아래의 Polyfill을 사용하면 된다.
+Object.keys는 ES5 의 문법으로 IE9 이하 버전에서는 제공되지 않으며, 제공하기 위해서는 아래의 Polyfill을 사용하면 된다.
 
 ```Javascript
 // From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
