@@ -32,7 +32,19 @@ Package Controll: * 으로 패키지와 관련된 명령들이 아래와 같이 
 - List Package: 설치 된 패키지 목록 확인
 - Remove Package: 패키지 삭제
 
-이 외 다양한
+이 외 다양한 명령어가 존재한다.
+
+## ImportError: No module named urllib2 로 인해 설치가 되지 않는 경우!
+[https://packagecontrol.io/installation](https://packagecontrol.io/installation) 에서 제공해주는 코드를 이용하여 Sublime text 내 Console 에서 복붙을 하게되면 위 에러가 뜨는데, 부득이하게 수동으로 설치를 해야한다.
+
+> 이유는 Python 이 업그레이드 되면서 urllib2 가 모두 urllib 로 통합되었기 때문, Python 을 깊게 쓰지 않는 나로서는 urllib 만으로 통합시켜서 별도로 해결방법이 존재하리라 믿지만 그건 추후 정리 하는걸로.
+
+1) [Package Control.sublime-package](https://packagecontrol.io/Package%20Control.sublime-package) 를 다운
+2) 서브라임에서 ```Preference > Browse Packages``` 를 클릭한 후 ```Installed Packages/ ``` 폴더로 이동
+3) *1)* 에서 받은 파일을 해당 폴더로 이동
+4) 서브라임 재시작
+
+
 
 ## 패키지 검색
 [http://wbond.net/sublime_packages/community](http://wbond.net/sublime_packages/community)
