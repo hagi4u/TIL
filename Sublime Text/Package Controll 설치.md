@@ -40,8 +40,11 @@ Package Controll: * 으로 패키지와 관련된 명령들이 아래와 같이 
 > 이유는 Python 이 업그레이드 되면서 urllib2 가 모두 urllib 로 통합되었기 때문, Python 을 깊게 쓰지 않는 나로서는 urllib 만으로 통합시켜서 별도로 해결방법이 존재하리라 믿지만 그건 추후 정리 하는걸로.
 
 1) [Package Control.sublime-package](https://packagecontrol.io/Package%20Control.sublime-package) 를 다운
+
 2) 서브라임에서 ```Preference > Browse Packages``` 를 클릭한 후 ```Installed Packages/ ``` 폴더로 이동
+
 3) *1)* 에서 받은 파일을 해당 폴더로 이동
+
 4) 서브라임 재시작
 
 
