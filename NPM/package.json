@@ -1,0 +1,18 @@
+#package.json
+
+
+## npm install 뒤 switch 에 따른 package.json의 변화
+```npm install --save```
+> dependence object 에 추가 됨
+
+```npm install --save-dev```
+> devDependence object 에 추가 됨
+
+
+```devDependence``` 는 NODE.env 가 production (--production) 일 때 제외 되는 패키지 이다.
+
+즉, 개발단계에서만 필요 한 모듈에 대해서는 ```devDependence``` 에 등록되게 해야하며, 운영단계에 필요 한 패키지는 ```dependence```에만 추가 해야 한다.
+
+
+-----
+
