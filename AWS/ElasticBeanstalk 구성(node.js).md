@@ -79,18 +79,18 @@ global:
   workspace_type: Application
 ```
 
-## .ebextensions/{filename}.config 에서 추가옵션 설정
 
-### Node.js
+## Appendix
+
+### .ebextensions/{filename}.config 에서 추가옵션 설정
+이 사항은 필수사항은 아니고 디테일하게 환경 설정을 해야하는 경우에만 사용 함 (앵간해서 사용할 일은 없음)
+#### Node.js
 ```yaml
 option_settings:
   aws:elasticbeanstalk:container:nodejs:
     NodeCommand: "npm start"
 ```
 와 같이 인스턴스 떴을 때 코맨드를 실행하는 것과 같은 설정을 해야 한다.
-
-
-## 추가
 
 ### 20180511 기준
 Node.js 플랫폼의 nginx 포트 기본 설정이 8081 로 되어있어 .ebextensions 에서 ngnix 의 고급 설정을 진행 하던지, Express.js (외 웹 서버 프로그램) 에서 서버 포트를 8081로 변환 해야 함.
