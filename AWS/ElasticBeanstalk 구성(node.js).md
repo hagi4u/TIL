@@ -1,13 +1,83 @@
 # AWS Elasticbeanstalk 구성
 
 
-## AWS 콘솔에서 환경 및 어플리케이션 생성
+## AWS 콘솔에서 어플리케이션 및 환경  생성
+한글버전이니 한글 읽고 어플리케이션, 환경을 생성하자
+
+## aws-cli 설치
+https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/eb-cli3-install-osx.html 에서 설치 방법 참고
+https://docs.aws.amazon.com/ko_kr/elasticbeanstalk/latest/dg/nodejs-getstarted.html NodeJS 
+
+## aws cli config 설치
+https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/cli-chap-getting-started.html
+
+이 설정을 참조 후 AWS KeyID, AccessKey 를 IAM에서 발급받은 (EB 접근에 권한이 있는) 키를 설정
+
+`~/.aws/credentials` 파일
+```
+[default]
+aws_access_key_id = 
+aws_secret_access_key = 
+```
 
 ## aws-cli 를 통해 initialize
+```
+  $ eb init
+```
+를 하게되면 어플리케이션을 선택하는 프롬포트가 뜬다. 선택하거나 (없으면)새로만들던가 하면 됨 
 
 ## .ebignore 에서 eb 에 배포되지 않아야 할 파일 설정
+1. .ebignore파일이 존재하면 .gitignore을 사용하지 않고 .ebignore 로 설정 됨
+2. .ebignore파일이 존재하지 않으면 .gitignore파일로 설정 됨 
+
+
+```
+# dependencies
+node_modules
+
+# logs
+npm-debug.log
+
+# Nuxt build 
+# nuxt.js 빌드 파일은 git에선 ignore 되어야하고, EB 에서는 ignore 되면 안됨 그래서 제거함
+
+# AWS
+.elasticbeanstalk
+
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
+```
 
 ## .elasticbeanstalk/config.yml 에서 환경값 설정
+권장 사항
+
+1. branch-defaults 에서 develop 브런치는 개발환경에 배포하게 하고, master 브런치는 실서버 환경에 배포하게 한다.
+  1-1. develop 브런치에서 QA가 모두 버그없이 끝나게되면 EB 콘솔에서 개발환경이 바라보고 있는 배포 파일을 실서버 환경이 바라보게 배포하면 실서버 배포는 끝 
+
+
+2. 아래 global 영역은 기존 제공해주는 데로 사용 함
+```yaml
+branch-defaults:
+  master:
+    environment: ExcitingLotte-env
+  develop:
+    environment: ExcitingLotte-dev-env
+global:
+  application_name: Exciting Lotte
+  default_ec2_keyname: null
+  default_platform: arn:aws:elasticbeanstalk:ap-northeast-2::platform/Node.js running
+    on 64bit Amazon Linux/4.5.1
+  default_region: ap-northeast-2
+  include_git_submodules: true
+  instance_profile: null
+  platform_name: null
+  platform_version: null
+  profile: null
+  sc: git
+  workspace_type: Application
+```
 
 ## .ebextensions/{filename}.config 에서 추가옵션 설정
 
