@@ -20,6 +20,12 @@ aws_access_key_id =
 aws_secret_access_key = 
 ```
 
+혹은
+```
+aws configure
+```
+명령을 통해 access, secretkey 를 넣는다.
+
 ## aws-cli 를 통해 initialize
 ```
   $ eb init
