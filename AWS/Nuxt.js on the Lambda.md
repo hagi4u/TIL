@@ -6,13 +6,14 @@
 
 따라서 AWS IAM 에서 적당한 권한이(보통 Administrator, 혹은 serverless.com 에서 권장하는 권한) 부여 된 key, secret 키 값을 발급 받아 아래와 같은 동작을 진행합니다.
 
-
 ### aws credentials 파일 생성
+
 ```
 $ vi ~/.aws/credentials
 ```
 
 아래와 같은 내용 추가
+
 ```
 [default]
 aws_access_key_id = YOUR_KEY
@@ -20,6 +21,7 @@ aws_secret_access_key = YOUR_SECRET
 ```
 
 ## 1. NPM Package Install
+
 아래 노드 모듈 설치
 
 ```
@@ -27,9 +29,12 @@ $ yarn add serverless serverless-http
 $ yarn add -D serverless-apigw-binary serverless-plugin-warmup
 ```
 
+-D 옵션은 `package.json` 파일의 devDependencies 에 적용, 람다 배포 시 dependency 에 있는 패키지만 압축하여 업로드 함.
+
 ## 2. serverless.yml 수정
 
 ./serverless.yml
+
 ```YAML
 service: BDSPackageFrontEndScaffolding # NOTE: update this with your service name
 
@@ -47,7 +52,7 @@ provider:
 functions:
   nuxt:
     handler: handler.nuxt
-    environment: 
+    environment:
       NODE_ENV: production
     events:
       - http: ANY {proxy+}
@@ -55,7 +60,7 @@ functions:
 plugins:
   - serverless-apigw-binary
   - serverless-plugin-warmup
- 
+
 custom:
   apigwBinary:
     types:
@@ -63,13 +68,15 @@ custom:
 ```
 
 ## 3. handler.js 수정
-`serverless.yml`에서 functions 에 정의 된 handler 을 기반으로 아래와 같이 handler.js 를 생성합니다. 
+
+`serverless.yml`에서 functions 에 정의 된 handler 을 기반으로 아래와 같이 handler.js 를 생성합니다.
 
 굳이 `handler.js` 가 아닌 다른 경로에서 작업 하셔도 되며 스크립트의 경로를 `serverless.yml` 의 handler 값에서 적당히 파일 경로를 넣은 후 export 되는 모듈 이름을 작성하면 됩니다.
 
 아래 예시파일은 nuxt.js 를 사용 했을 때의 예시입니다.
 
 ./handler.js
+
 ```JavaScript
 'use strict';
 const { Nuxt } = require('nuxt');
