@@ -45,7 +45,7 @@ function get (key, json) {
 ...
 ```
 
-아쉽게도 위 `document` 를 [코드 1-2] 형태로 작성 할 경우 `undefined` 가 출되고, 이는 곳 `nuxtServerInit` 에서 작성한 [코드 1-2] 이 정상적으로 `global` 변수에 정의되지 않는 문제로 확인했다.
+아쉽게도 위 `document` 를 [코드 1-2] 형태로 작성 할 경우 `undefined` 가 출력되고, 이는 곳 `nuxtServerInit` 에서 작성한 [코드 1-2] 이 정상적으로 `global` 변수에 정의되지 않는 문제로 확인했다.
 
 
 ## 해결
